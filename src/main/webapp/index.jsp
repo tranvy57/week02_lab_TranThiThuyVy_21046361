@@ -11,9 +11,7 @@
     <title>HOme</title>
 </head>
 <body>
-    <h1> HOme sweet home</h1>
-    <hr width="50%" align="center"/>
-    <h2>PRODUCTS</h2>
-    <a href="controller?action=list_products">List products</a>
+    <jsp:include page="views/header.jsp"/>
+    <h1> Index</h1>
 </body>
 </html>

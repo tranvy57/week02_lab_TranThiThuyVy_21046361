@@ -1,17 +1,16 @@
-package backend.entities;
+package backend.dto;
 
+import backend.entities.ProductStatus;
+import backend.entities.ProductStatusConverter;
 import jakarta.persistence.*;
 import lombok.*;
 
-
-import java.util.List;
-@Entity
-@Table(name = "products")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Product {
+@ToString
+public class ProductRequest {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "product_id")
@@ -32,18 +31,6 @@ public class Product {
 
     @Column(name = "unit", length = 25)
     private String unit;
-
-    @OneToMany(mappedBy = "product")
-    private List<OrderDetail> orderDetails;
-
-    @OneToMany(mappedBy = "product")
-    private List<ProductImage> productImages;
-
-    @OneToMany(mappedBy = "product")
-    private List<ProductPrice> productPrices;
-
-    // Getters và Setters
-
 
     public Long getId() {
         return id;
@@ -93,27 +80,6 @@ public class Product {
         this.unit = unit;
     }
 
-    public List<OrderDetail> getOrderDetails() {
-        return orderDetails;
-    }
+    //set trạn status
 
-    public void setOrderDetails(List<OrderDetail> orderDetails) {
-        this.orderDetails = orderDetails;
-    }
-
-    public List<ProductImage> getProductImages() {
-        return productImages;
-    }
-
-    public void setProductImages(List<ProductImage> productImages) {
-        this.productImages = productImages;
-    }
-
-    public List<ProductPrice> getProductPrices() {
-        return productPrices;
-    }
-
-    public void setProductPrices(List<ProductPrice> productPrices) {
-        this.productPrices = productPrices;
-    }
 }

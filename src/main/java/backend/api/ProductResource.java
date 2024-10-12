@@ -1,6 +1,7 @@
 package backend.api;
 
 import backend.bussiness.ProductRemote;
+import backend.dto.ProductRequest;
 import backend.entities.Product;
 import jakarta.ejb.EJB;
 import jakarta.persistence.Entity;
@@ -20,7 +21,7 @@ public class ProductResource {
     }
 
     @POST
-    public Response addProduct(Product product) {
+    public Response addProduct(ProductRequest product) {
         productRemote.add(product);
         return Response.ok(product).build();
     }

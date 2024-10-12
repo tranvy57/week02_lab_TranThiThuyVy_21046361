@@ -2,6 +2,7 @@ package backend.bussiness;
 
 
 import backend.dto.ProductDTO;
+import backend.dto.ProductRequest;
 import backend.entities.Product;
 import backend.entities.ProductPrice;
 import backend.repositories.ProductPriceRepository;
@@ -22,12 +23,21 @@ public class ProductBean implements ProductRemote{
 
 
     @Override
-    public void add(Product product) {
-        productRepository.create(product);
+    public void add(ProductRequest product) {
+        Product p = new Product();
+        p.setName(product.getName());
+        p.setDescription(product.getDescription());
+        p.setUnit(product.getUnit());
+        p.setManufacturer(product.getManufacturer());
+        p.setStatus(product.getStatus());
+        System.out.println(product.getStatus());
+
+        productRepository.create(p);
+
     }
 
     @Override
-    public void delete(Product product) {
+    public void delete(String id) {
 
     }
 
